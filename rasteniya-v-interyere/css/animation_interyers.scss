@@ -1,0 +1,70 @@
+$flag-hover-color: #E09A78;
+$color-button-hover: #3A4736;
+$flag-hover-text: #525D4D;
+$favourite-btn-color: #3A4736;
+
+$font-size: 20px;
+$line-height: 20px;
+$font-weight: 400;
+
+$border-width: 1px;
+
+$border: $border-width solid $color-button-hover;
+
+.article-button-favourite:hover{
+    cursor: pointer;
+}
+.article-button-favourite:hover .button-favourite path{
+    stroke: $flag-hover-color;
+}
+
+.article-button-favourite:active{
+    border: $border;
+}
+.article-button-favourite:active .button-favourite path{
+    stroke: $favourite-btn-color;
+}
+
+.article-card:hover{
+    position: relative;
+    opacity: 1;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.popular-last-link:visited, .popular-last-link:hover, .popular-last-link:active{
+    font-family: 'Roboto', sans-serif;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: $line-height;
+    text-decoration: underline;
+}
+
+.button-item:visited, .button-item:hover, .button-item:active{
+    color: $color-button-hover;
+    border: $border;
+    cursor: pointer;
+}
+
+.card:hover .card-button-circle{
+    opacity: 1;
+}
+
+.card:hover .card-image{
+    filter: brightness(60%);
+    transition: .7s;
+}
+
+.card-button-like:hover .button-like-image path{
+    stroke: #DD4646;
+}
+
+.magnify-card:hover .card-button{
+    opacity: 1;
+}
+
+.magnify-card:hover .card-image{
+    filter: brightness(60%);
+    transition: .7s;
+}

@@ -1,0 +1,39 @@
+.article-flag:hover {
+  background-color: #E09A78;
+  cursor: pointer;
+}
+
+.article-flag:hover .article-flag-image path {
+  stroke: #525D4D;
+}
+
+.article-flag:hover .article-flag-text {
+  color: #525D4D;
+}
+
+.article-flag:active {
+  border: 1px solid #3A4736;
+}
+
+.article-button-favourite:hover {
+  cursor: pointer;
+}
+
+.article-button-favourite:hover .button-favourite path {
+  stroke: #E09A78;
+}
+
+.article-button-favourite:active {
+  border: 1px solid #3A4736;
+}
+
+.article-button-favourite:active .button-favourite path {
+  stroke: #3A4736;
+}
+
+.article:hover {
+  position: relative;
+  opacity: 1;
+  transform: scale(1.05);
+  cursor: pointer;
+}/*# sourceMappingURL=animation_magazine.css.map */

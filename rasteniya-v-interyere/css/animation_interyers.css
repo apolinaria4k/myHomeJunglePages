@@ -1,0 +1,58 @@
+.article-button-favourite:hover {
+  cursor: pointer;
+}
+
+.article-button-favourite:hover .button-favourite path {
+  stroke: #E09A78;
+}
+
+.article-button-favourite:active {
+  border: 1px solid #3A4736;
+}
+
+.article-button-favourite:active .button-favourite path {
+  stroke: #3A4736;
+}
+
+.article-card:hover {
+  position: relative;
+  opacity: 1;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.popular-last-link:visited, .popular-last-link:hover, .popular-last-link:active {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  text-decoration: underline;
+}
+
+.button-item:visited, .button-item:hover, .button-item:active {
+  color: #3A4736;
+  border: 1px solid #3A4736;
+  cursor: pointer;
+}
+
+.card:hover .card-button-circle {
+  opacity: 1;
+}
+
+.card:hover .card-image {
+  filter: brightness(60%);
+  transition: 0.7s;
+}
+
+.card-button-like:hover .button-like-image path {
+  stroke: #DD4646;
+}
+
+.magnify-card:hover .card-button {
+  opacity: 1;
+}
+
+.magnify-card:hover .card-image {
+  filter: brightness(60%);
+  transition: 0.7s;
+}/*# sourceMappingURL=animation_interyers.css.map */

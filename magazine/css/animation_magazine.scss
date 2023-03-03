@@ -1,0 +1,45 @@
+$flag-hover-color: #E09A78;
+$flag-hover-text: #525D4D;
+$favourite-btn-color: #3A4736;
+
+$border-width: 1px;
+
+$border: $border-width solid $favourite-btn-color;
+
+.article-flag:hover{
+    background-color: $flag-hover-color;
+    cursor: pointer;
+}
+
+.article-flag:hover .article-flag-image path{
+    stroke: $flag-hover-text;
+}
+.article-flag:hover .article-flag-text{
+    color: $flag-hover-text;
+}
+
+.article-flag:active{
+    border: $border;
+}
+
+
+.article-button-favourite:hover{
+    cursor: pointer;
+}
+.article-button-favourite:hover .button-favourite path{
+    stroke: $flag-hover-color;
+}
+
+.article-button-favourite:active{
+    border: $border;
+}
+.article-button-favourite:active .button-favourite path{
+    stroke: $favourite-btn-color;
+}
+
+.article:hover{
+    position: relative;
+    opacity: 1;
+    transform: scale(1.05);
+    cursor: pointer;
+}

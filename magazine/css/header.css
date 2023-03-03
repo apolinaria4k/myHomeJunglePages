@@ -1,0 +1,149 @@
+.header-main {
+    background-color: #EDE1DE;
+    min-width: 320px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.header-main .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-main .header__container .header__left-block {
+    display: flex;
+    align-items: center;
+}
+
+.header-main .header__container .header__left-block .main-logo__img {
+    width: 111px;
+    height: 51px;
+    padding: 3px 0px 0px;
+}
+
+.header-main .header__container .header__left-block .left-block__nav-head {
+    margin-left: 69px;
+}
+
+.header-main .header__container .header__left-block .left-block__nav-head .nav-head__ul {
+    display: flex;
+}
+
+.header-main .header__container .header__left-block .left-block__nav-head .nav-head__ul .nav-head__li:nth-child(1) {
+    margin-right: 40px;
+}
+
+.header-main .header__container .header__left-block .left-block__nav-head .nav-head__ul .nav-head__li:nth-child(2) {
+    margin-right: 40px;
+}
+
+.header-main .header__container .header__left-block .left-block__nav-head .nav-head__ul .nav-head__li:nth-child(3) {
+    margin-right: 40px;
+}
+
+.header-main .header__container .header__left-block .left-block__nav-head .nav-head__ul .nav-head__btn {
+    color: #3A4736;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    transition: box-shadow 0.1s ease-out;
+    padding: 4px;
+    border-radius: 6px;
+}
+
+.header-main .header__container .header__left-block .left-block__nav-head .nav-head__ul .nav-head__btn:hover {
+    box-shadow: 0 0 0 1px #87957E;
+    color: rgba(58, 71, 54, 0.6549019608);
+}
+
+.header-main .header__container .header__right-block {
+    display: flex;
+    align-items: center;
+}
+
+.header-main .header__container .header__right-block .right-block__search-head {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 20px;
+}
+
+.header-main .header__container .header__right-block .right-block__search-head .search-head__input {
+    border: 1px solid rgba(175, 175, 158, 0.6274509804);
+    border-radius: 6px;
+    background-color: #EDE1DE;
+    width: 176px;
+    height: 40px;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    position: absolute;
+    right: 0px;
+    z-index: 12;
+    transition: 0.7s;
+}
+
+.header-main .header__container .header__right-block .right-block__search-head .search-head__input::-moz-placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.header-main .header__container .header__right-block .right-block__search-head .search-head__input::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.header-main .header__container .header__right-block .right-block__search-head .search-head__input:focus {
+    width: 380px;
+}
+
+.header-main .header__container .header__right-block .right-block__search-head .search-head__btn {
+    position: absolute;
+    right: 11px;
+    z-index: 13;
+}
+
+.header-main .header__container .header__right-block .right-block__search-head .search-head__btn .btn-head__img {
+    fill: #87957E;
+}
+
+.header-main .header__container .header__right-block .right-block__search-head .search-head__btn .btn-head__img:hover {
+    fill: black;
+}
+
+.header-main .header__container .header__right-block .right-block__btn-head {
+    display: flex;
+    align-items: center;
+}
+
+.header-main .header__container .header__right-block .right-block__btn-head .btn-head__heart {
+    margin-right: 22px;
+}
+
+.header-main .header__container .header__right-block .right-block__btn-head .heart__btn {
+    width: 28px;
+    height: 23px;
+    fill: none;
+}
+
+.header-main .header__container .header__right-block .right-block__btn-head .heart__btn:hover {
+    fill: #87957E;
+}
+
+.header-main .header__container .header__right-block .right-block__btn-head .person__btn {
+    width: 28px;
+    height: 23px;
+    fill: none;
+    stroke: black;
+}
+
+.header-main .header__container .header__right-block .right-block__btn-head .person__btn:hover {
+    fill: #87957E;
+    stroke: #87957E;
+}
