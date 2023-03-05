@@ -4,9 +4,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 $mysqli->set_charset("utf8mb4");
 
-$type = $_GET['type'];
-
-$result = $mysqli->query("SELECT * FROM `article` WHERE type_of_design = '".$type."'");
+$result = $mysqli->query('SELECT * FROM `Interior_Disc` ORDER BY id_interior DESC LIMIT 42');
 $array = [];
 
 if ($result) {
@@ -17,7 +15,6 @@ if ($result) {
 
     $result = array(
         'info' => $array,
-        'type' => $type,
         'code' => 'ok'
     );
 
@@ -29,8 +26,8 @@ if ($result) {
         'code' => 'error',
         'info' => mysqli_error($conn)
     );
-    
     echo json_encode($result);
+  
 }
 
 ?>

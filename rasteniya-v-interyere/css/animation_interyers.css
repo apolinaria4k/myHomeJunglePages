@@ -21,7 +21,7 @@
   cursor: pointer;
 }
 
-.popular-last-link:visited, .popular-last-link:hover, .popular-last-link:active {
+.popular-last-link:visited, .popular-last-link:hover, .popular-last-link-active {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -29,7 +29,7 @@
   text-decoration: underline;
 }
 
-.button-item:visited, .button-item:hover, .button-item:active {
+.button-item:visited, .button-item:hover, .button-item-active {
   color: #3A4736;
   border: 1px solid #3A4736;
   cursor: pointer;
@@ -53,6 +53,6 @@
 }
 
 .magnify-card:hover .card-image {
-  filter: brightness(60%);
+  filter: brightness(80%);
   transition: 0.7s;
 }/*# sourceMappingURL=animation_interyers.css.map */

@@ -1,7 +1,12 @@
-function articleCard(foto, head, date, author){
+function articleCard(id, foto, head, date, author){
 
     let divArticle = document.createElement('div')
     divArticle.className = 'article-card'
+
+    // Добавляется статья
+    divArticle.id = `item-${id}`
+    divArticle.onclick = function(){articleLoad(this)} 
+    ////////////////////////////
 
     divArticle.innerHTML = `
         <div class="article-image">
@@ -23,13 +28,13 @@ function articleCard(foto, head, date, author){
 
 function outputArticles(data){
     for(let i = 0; i <  data.info.length; i++){
-        let card = articleCard(data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+        let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
         $('.articles').append(card)
     }
 }
 
 function allArticles(){
-    fetch('backend/articles.php')
+    fetch('rasteniya-v-interyere/backend/articles.php')
         .then(result => result.json())
         .then(data => { outputArticles(data)})
 }
