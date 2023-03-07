@@ -8,8 +8,10 @@ $line-height: 20px;
 $font-weight: 400;
 
 $border-width: 1px;
+$border-select-width: 3px;
 
 $border: $border-width solid $color-button-hover;
+$border-select-btn: $border-select-width solid $color-button-hover;
 
 .article-button-favourite:hover{
     cursor: pointer;
@@ -33,18 +35,20 @@ $border: $border-width solid $color-button-hover;
 }
 
 
-.popular-last-link:visited, .popular-last-link:hover, .popular-last-link-active{
+.popular-last-link:hover, .popular-last-link-active{
     font-family: 'Roboto', sans-serif;
-    font-weight: $font-weight;
-    font-size: $font-size;
-    line-height: $line-height;
+    scale: 1.2;
+    // font-weight: $font-weight;
+    // font-size: $font-size;
+    // line-height: $line-height;
     text-decoration: underline;
 }
 
-.button-item:visited, .button-item:hover, .button-item-active{
+.button-item:hover, .button-item-active{
     color: $color-button-hover;
-    border: $border;
+    border: $border-select-btn;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .card:hover .card-button-circle{

@@ -1,0 +1,10 @@
+$bg-main-color: #EDE1DE;
+$phone: 600px;
+
+
+@media screen and (max-width: $phone){
+    .container{
+        padding: 0 15px;
+    }
+        
+}

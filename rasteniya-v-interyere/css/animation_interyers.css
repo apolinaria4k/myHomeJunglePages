@@ -21,18 +21,17 @@
   cursor: pointer;
 }
 
-.popular-last-link:visited, .popular-last-link:hover, .popular-last-link-active {
+.popular-last-link:hover, .popular-last-link-active {
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
+  scale: 1.2;
   text-decoration: underline;
 }
 
-.button-item:visited, .button-item:hover, .button-item-active {
+.button-item:hover, .button-item-active {
   color: #3A4736;
-  border: 1px solid #3A4736;
+  border: 3px solid #3A4736;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .card:hover .card-button-circle {

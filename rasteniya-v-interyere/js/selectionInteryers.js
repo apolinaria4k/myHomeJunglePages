@@ -3,6 +3,9 @@ $(document).ready(function(){
         if(document.querySelector('.button-item-active')){
             document.querySelector('.button-item-active').classList.remove('button-item-active')
         }
+        if (document.querySelector('.popular-last-link-active')) {
+            document.querySelector('.popular-last-link-active').classList.remove('popular-last-link-active')
+        }
         let target = event.target
         let location = target.textContent
         target.classList.add('button-item-active')
@@ -22,30 +25,30 @@ function oneSection(data){
     if(length % 3 !== 0 && length % 2 !== 0 || length % 3 !== 0){
         for(let i = 0; i <= i1; i++){
             let index = 'first__first-column'
-            interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+            interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
         }
         for(let i = i1 + 1; i < i2 + 1; i++){
             let index = 'first__second-column'
-            interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+            interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
         }
         for(let i = i2 + 1; i < length; i++){
             let index = 'first__third-column'
-            interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+            interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
         }
     }
    
     else{
         for(let i = 0; i < i1; i++){
             let index = 'first__first-column'
-            interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+            interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
         }
         for(let i = i1; i < i2; i++){
             let index = 'first__second-column'
-            interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+            interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
         }
         for(let i = i2; i < length; i++){
             let index = 'first__third-column'
-            interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+            interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
         }
     }
 }
@@ -60,28 +63,28 @@ function twoSections(data){
 
     for(let i = 0; i < i1; i++){
         let index = 'first__first-column'
-        interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+        interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
     }
     for(let i = i1; i < i2; i++){
         let index = 'first__second-column'
-        interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+        interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
     }
     for(let i = i2; i < halfOfLength; i++){
         let index = 'first__third-column'
-        interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+        interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
     }
 
     for(let i = halfOfLength; i <= i3; i++){
         let index = 'second__first-column'
-        interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+        interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
     }
     for(let i = i3 + 1; i <= i4; i++){
         let index = 'second__second-column'
-        interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+        interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
     }
     for(let i = i4 + 1; i < length; i++){
         let index = 'second__third-column'
-        interyerCard(data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
+        interyerCard(i, data.info[i].id_interior, data.info[i].foto, data.info[i].alt, index)
     }
 }
 
@@ -94,7 +97,7 @@ function columnsOfInteryers(data){
 
 function selectedInteryers(location){
     $.ajax({
-        url:     "rasteniya-v-interyere/backend/selectInteryer.php", //url страницы
+        url:     "backend/selectInteryer.php", //url страницы
         type:     "GET", //метод отправки
         dataType: "json", //формат данных
         data: {"location": location},
@@ -112,9 +115,10 @@ function selectedInteryers(location){
     });
 }
 
-function interyerCard(id, foto, alt, index){
+function interyerCard(id_selected_card, id, foto, alt, index){
     let card = document.createElement('div')
     card.className = 'card'
+    card.setAttribute('id', id_selected_card)
     card.innerHTML = `
                 <div class="card-button-like">
                     <svg class="button-like-image" width="30" height="30" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,7 +128,7 @@ function interyerCard(id, foto, alt, index){
                 <img class="card-image" src="` + foto + `" alt="` + alt + `">`
 
     $.ajax({
-        url:     "rasteniya-v-interyere/backend/getPlants.php", //url страницы
+        url:     "backend/getPlants.php", //url страницы
         type:     "GET", //метод отправки
         dataType: "json", //формат данных
         data: {"id": id},

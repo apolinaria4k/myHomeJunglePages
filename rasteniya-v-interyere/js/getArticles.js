@@ -34,7 +34,7 @@ function outputArticles(data){
 }
 
 function allArticles(){
-    fetch('rasteniya-v-interyere/backend/articles.php')
+    fetch('backend/articles.php')
         .then(result => result.json())
         .then(data => { outputArticles(data)})
 }
