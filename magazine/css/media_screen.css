@@ -1,5 +1,89 @@
 @media screen and (max-width: 600px) {
-  .container {
-    padding: 0 15px;
+  body, .articles-wrapper {
+    font-size: 12px;
+    line-height: 12px;
+    background-color: #EDE1DE;
+  }
+  .select-buttons-wrapper {
+    background-color: #EDE1DE;
+  }
+  .articles-wrapper {
+    padding: 0;
+    margin-bottom: 150px;
+  }
+  .articles {
+    padding: 0;
+    gap: 20px;
+  }
+  .selection-line-container {
+    visibility: hidden;
+    position: absolute;
+  }
+  .selection {
+    padding: 10px 15px;
+  }
+  .selection-text {
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 0;
+  }
+  .select-buttons-wrapper {
+    padding: 0 15px 10px;
+    visibility: visible;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .selection-line-container {
+    width: 0;
+  }
+  .select {
+    visibility: hidden;
+    position: absolute;
+  }
+  .article {
+    max-width: 170px;
+  }
+  .article-image {
+    height: 180px;
+  }
+  .articles-end {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+  }
+  .articles-line {
+    width: 0;
+  }
+  .articles-column__third {
+    visibility: hidden;
+    position: absolute;
+  }
+  .article-title {
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: bold;
+  }
+  .article-link {
+    font-size: 11px;
+    line-height: 15px;
+  }
+  .article-button-favourite {
+    padding: 0;
+    width: 24px;
+    height: 24px;
+  }
+  .button-favourite {
+    width: 16px;
+    height: 24px;
+  }
+  .article-flag {
+    width: 37px;
+    padding: 5px 0;
+  }
+  .article-flag-text {
+    font-size: 7px;
+  }
+  .up-arrow {
+    visibility: visible;
   }
 }/*# sourceMappingURL=media_screen.css.map */

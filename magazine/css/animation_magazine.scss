@@ -1,10 +1,33 @@
 $flag-hover-color: #E09A78;
 $flag-hover-text: #525D4D;
 $favourite-btn-color: #3A4736;
+$color-button-hover: #3A4736;
+
+$font-size: 20px;
+$line-height: 20px;
+$font-weight: 400;
 
 $border-width: 1px;
+$border-select-width: 3px;
+
+$border-select-btn: $border-width solid $color-button-hover;
 
 $border: $border-width solid $favourite-btn-color;
+
+.popular-last-link:hover, .popular-last-link-active{
+    font-family: 'Roboto', sans-serif;
+    scale: 1.05;
+    
+    text-decoration: underline;
+}
+
+.button-item:hover, .button-item-active{
+    color: $color-button-hover;
+    border: $border-select-btn;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 
 .article-flag:hover{
     background-color: $flag-hover-color;

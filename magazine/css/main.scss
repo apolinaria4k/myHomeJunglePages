@@ -12,9 +12,13 @@ $article-flag: #87957E;
 $article-flag-text: #fff;
 
 
+
+
 $border-radius: 6px;
 $border-width: 2px;
+$btn-border-width: 1px;
 
+$btn-border: $btn-border-width solid $line-color;
 $articles-line-border: $border-width solid $article-text-color;
 
 //FONT-SIZES
@@ -117,6 +121,51 @@ main{
     background-color: $line-color;
 }
 
+//добавление для мобильной версии
+.select-buttons-wrapper{
+    visibility: hidden;
+    position: absolute;
+    padding: 0 15px 10px;
+    border-bottom:  $btn-border;
+}
+
+
+.popular-last-links{
+    display: flex;
+    gap: 18px;
+    margin: 10px 0;
+    // margin-bottom: 33px;
+}
+
+.popular-last-link{
+    font-size: 12px;
+    line-height: 12px;
+    color: $article-flag;
+    transition: .3s;
+}
+
+.buttons-list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $article-text-color;
+    padding: 10px 15px;
+    // width: 177px;
+    // height: 50px;
+    border: $btn-border;
+    border-radius: $border-radius;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+
+//конец добавления для мобильной версии
+
 .wrapper{
     display: flex;
     flex-direction: column;
@@ -131,10 +180,11 @@ main{
     z-index: 2;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 45px;
     position: relative;
-    width: $width-articles;
-    max-height: 100vh;
-    overflow: scroll;
+    max-width: 1300px;
+    // max-height: 100vh;
+    // overflow: scroll;
     background-color: $articles-background;
 }
 
@@ -178,8 +228,9 @@ main{
 
 
 .article-image{
+    border-radius: $border-radius;
     position: relative;
-    width: 383px;
+    width: 100%;
     height: 400px;
     box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
     margin-bottom: 10px;
@@ -214,6 +265,7 @@ main{
 .article-flag-text{
     font-size: $font-size - 8px;
     color: $article-flag-text;
+    font-feature-settings: "pnum" on, "lnum" on;
 }
 
 // .articles-column:nth-child(2n+1) .article:nth-child(2n+1) .article-image{
@@ -227,12 +279,12 @@ main{
 // }
 
 
-.articles-column:nth-child(2n+1) .article:first-child .article-image{
-    height: 338px;
-}
-.articles-column:nth-child(2n) .article:last-child .article-image{
-    height: 338px;
-}
+// .articles-column:nth-child(2n+1) .article:first-child .article-image{
+//     height: 338px;
+// }
+// .articles-column:nth-child(2n) .article:last-child .article-image{
+//     height: 338px;
+// }
 
 
 
@@ -263,4 +315,24 @@ main{
     background-color: $card-button-like;
     top: 4px;
     right: 4px;
+}
+
+.up-arrow{
+    visibility: hidden;
+    width: 27px;
+    height: 50px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: -143px;
+    right: 20px;    
+}
+
+.arrow-link{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }

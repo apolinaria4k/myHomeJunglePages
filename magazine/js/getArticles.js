@@ -9,12 +9,69 @@ $(document).ready(function(){
 
         $('.select-head').text() === 'Все темы' ? allArticles() : selectionArticles(type)
     });
+
+    $('.button-item').on('click', function (event) {
+         if (document.querySelector('.button-item-active')) {
+            document.querySelector('.button-item-active').classList.remove('button-item-active')
+        }
+        if (document.querySelector('.popular-last-link-active')) {
+            document.querySelector('.popular-last-link-active').classList.remove('popular-last-link-active')
+        }
+
+        
+        let target = event.target
+        target.classList.add('button-item-active')
+
+        $('.articles-column').children().remove()
+
+        $(target).text() === 'Все темы' ? allArticlesForPhone() : selectionArticles($(target).text())
+
+    });
+
+    $('#last').on('click', function (event) {
+        if (document.querySelector('.button-item-active')) {
+            document.querySelector('.button-item-active').classList.remove('button-item-active')
+        }
+        if (document.querySelector('.popular-last-link-active')) {
+            document.querySelector('.popular-last-link-active').classList.remove('popular-last-link-active')
+        }
+
+        let target = event.target
+        target.classList.add('popular-last-link-active')
+
+        $('.articles-column').children().remove()
+
+        alternativeArticles()
+
+    })
+    $('#popular').on('click', function (event) {
+        if (document.querySelector('.button-item-active')) {
+            document.querySelector('.button-item-active').classList.remove('button-item-active')
+        }
+        if (document.querySelector('.popular-last-link-active')) {
+            document.querySelector('.popular-last-link-active').classList.remove('popular-last-link-active')
+        }
+
+        let target = event.target
+        target.classList.add('popular-last-link-active')
+
+        $('.articles-column').children().remove()
+        
+        allArticlesForPhone()
+    })
 })
 
-function articleCard(foto, head, date, author){
+
+//для размера ноутбука
+function articleCard(id, foto, head, date, author){
 
     let divArticle = document.createElement('div')
     divArticle.className = 'article'
+
+     // Добавляется статья
+    divArticle.id = id
+    divArticle.onclick = function(){articleLoad(this)} 
+    ////////////////////////////
 
     divArticle.innerHTML = `
     <div class="article-image">
@@ -69,33 +126,33 @@ function outputArticles(data){
     if( data.info.length % 3 !== 0 && data.info.length % 2 !== 0){
         
         for(let i = 0; i <= i1; i++){
-            let card = articleCard(data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+            let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
             $('.articles-column__first').append(card)
         }
     
         for(let i = i1 + 1; i < i2 + 1; i++){
-            let card = articleCard(data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+            let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
             $('.articles-column__second').append(card)
         }
     
         for(let i = i2 + 1; i < data.info.length; i++){
-            let card = articleCard(data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+            let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
             $('.articles-column__third').append(card)
         }
         
     }else{
             for(let i = 0; i < i1; i++){
-            let card = articleCard(data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+            let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
             $('.articles-column__first').append(card)
         }
 
         for(let i = i1; i < i2; i++){
-            let card = articleCard(data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+            let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
             $('.articles-column__second').append(card)
         }
     
         for(let i = i2; i < data.info.length; i++){
-            let card = articleCard(data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+            let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
             $('.articles-column__third').append(card)
         }
     }
@@ -103,15 +160,14 @@ function outputArticles(data){
 }
 
 function allArticles(){
-    fetch('backend/articles.php')
+    fetch('magazine/backend/articles.php')
         .then(result => result.json())
         .then(data => { outputArticles(data)})
 }
 
-
 function selectionArticles(type){
         $.ajax({
-            url:     "backend/selectionArticles.php", //url страницы
+            url:     "magazine/backend/selectionArticles.php", //url страницы
             type:     "GET", //метод отправки
             dataType: "json", //формат данных
             data: {"type": type},
@@ -129,6 +185,77 @@ function selectionArticles(type){
         }
     });
 }
+//////////////
+
+
+//для размеров телефона
+function outputArticlesForPhone(data){
+    let i1 = parseInt( data.info.length / 2, 10)
+    
+    if(data.info.length % 2 !== 0){
+        
+        for(let i = 0; i <= i1; i++){
+            let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+            $('.articles-column__first').append(card)
+        }
+    
+        for(let i = i1 + 1; i < data.info.length; i++){
+            let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+            $('.articles-column__second').append(card)
+        }
+        
+    }else{
+        for(let i = 0; i < i1; i++){
+            let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+            $('.articles-column__first').append(card)
+        }
+
+        for(let i = i1; i < data.info.length; i++){
+            let card = articleCard(data.info[i].id_article, data.info[i].foto, data.info[i].head, data.info[i].date, data.info[i].author)
+            $('.articles-column__second').append(card)
+        }
+    }
+
+}
+
+function allArticlesForPhone(){
+    fetch('magazine/backend/articles.php')
+        .then(result => result.json())
+        .then(data => { outputArticlesForPhone(data)})
+}
+
+function selectionArticles(type){
+        $.ajax({
+            url:     "magazine/backend/selectionArticles.php", //url страницы
+            type:     "GET", //метод отправки
+            dataType: "json", //формат данных
+            data: {"type": type},
+            success: function(data) { //Данные отправлены успешно
+                if(data.code != 'error'){
+                    outputArticlesForPhone(data)
+                    console.log(data)
+
+                }else{
+                    console.log(data);
+                }
+        },
+        error: function(data) { // Данные не отправлены
+                console.log(data);
+        }
+    });
+}
+
+function alternativeArticles() {
+    fetch('magazine/backend/alternativeArticle.php')
+        .then(result => result.json())
+        .then(data => { outputArticlesForPhone(data) })
+}
+////////////
+
+
+
+
+
 
 
 
